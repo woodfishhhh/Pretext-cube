@@ -219,7 +219,7 @@ export function usePretextFlow(
     }
 
     const hull = projection.value?.hull ?? createFallbackHull(width.value, height.value)
-    
+
     const padding = typography.value.screenPadding
     const center = width.value / 2
     const gutter = Math.max(60, width.value * 0.06)
