@@ -193,7 +193,7 @@
 
       motion.rotationXW += deltaSeconds * 0.34 * props.speed + motion.inertiaXW
       motion.rotationYZ += deltaSeconds * 0.21 * props.speed + motion.inertiaYZ
-      
+
       motion.inertiaXW *= 0.935
       motion.inertiaYZ *= 0.93
     }
