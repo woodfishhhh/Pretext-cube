@@ -1,0 +1,140 @@
+:root {
+  --bg-0: #02050c;
+  --bg-1: #07111d;
+  --bg-2: #0d1a2b;
+  --ink: #eef6ff;
+  --muted: rgba(176, 200, 224, 0.78);
+  --accent: #83d5ff;
+  --accent-soft: rgba(131, 213, 255, 0.18);
+  --accent-violet: #888cff;
+  --frame: rgba(129, 168, 202, 0.16);
+  --font-ui:
+    "Inter", "-apple-system", "BlinkMacSystemFont", "SF Pro Display",
+    "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-body:
+    "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong",
+    "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  background: var(--bg-0);
+  font-family: var(--font-ui);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  background:
+    radial-gradient(
+      circle at 20% 22%,
+      rgba(123, 144, 255, 0.14),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 80% 76%,
+      rgba(43, 160, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 50%, #010208 100%);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(61, 126, 255, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(180deg, rgba(8, 15, 25, 0.28) 0%, rgba(2, 6, 13, 0.9) 100%);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  opacity: 0.42;
+  background-image:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 255, 255, 0.5) 0 0.5px,
+      transparent 0.75px
+    ),
+    radial-gradient(
+      circle at 68% 30%,
+      rgba(142, 205, 255, 0.42) 0 0.7px,
+      transparent 0.9px
+    ),
+    radial-gradient(
+      circle at 36% 82%,
+      rgba(152, 160, 255, 0.32) 0 0.6px,
+      transparent 0.85px
+    );
+  background-size:
+    240px 240px,
+    310px 310px,
+    270px 270px;
+}
+
+body::after {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(124, 174, 214, 0.04) 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      transparent 0%,
+      rgba(90, 120, 160, 0.04) 50%,
+      transparent 100%
+    );
+  background-size:
+    100% 100%,
+    100% 100%;
+  mix-blend-mode: screen;
+  opacity: 0.16;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(132, 214, 255, 0.28);
+  color: #ffffff;
+}
+

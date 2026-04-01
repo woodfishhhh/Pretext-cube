@@ -1,0 +1,51 @@
+{
+  "pid": 16440,
+  "parent_pid": 43176,
+  "started_at": "2026-03-31T13:02:39.973Z",
+  "cwd": "C:\\Users\\woodfish\\Desktop\\前端\\pretext\\pretext",
+  "notify_script": "C:\\Users\\woodfish\\AppData\\Roaming\\npm\\node_modules\\oh-my-codex\\scripts\\notify-hook.js",
+  "poll_ms": 250,
+  "pid_file": "C:\\Users\\woodfish\\Desktop\\前端\\pretext\\pretext\\.omx\\state\\notify-fallback.pid",
+  "max_lifetime_ms": 21600000,
+  "tracked_files": 5,
+  "seen_turns": 0,
+  "dispatch_drain": {
+    "enabled": true,
+    "max_per_tick": 5,
+    "run_count": 9485,
+    "leader_only": true,
+    "last_tick_at": "2026-03-31T13:44:09.641Z",
+    "last_result": {
+      "processed": 0,
+      "skipped": 0,
+      "failed": 0
+    },
+    "last_error": null
+  },
+  "leader_nudge": {
+    "enabled": true,
+    "run_count": 9485,
+    "leader_only": true,
+    "stale_threshold_ms": 180000,
+    "precomputed_leader_stale": true,
+    "last_tick_at": "2026-03-31T13:44:09.642Z",
+    "last_error": null
+  },
+  "ralph_continue_steer": {
+    "enabled": true,
+    "cadence_ms": 60000,
+    "message": "Ralph loop active continue",
+    "active": false,
+    "last_state_check_at": "2026-03-31T13:44:09.644Z",
+    "last_sent_at": "",
+    "last_reason": "cleared",
+    "last_error": null,
+    "state_path": "",
+    "pane_id": "",
+    "pane_current_command": "",
+    "current_phase": ""
+  },
+  "stop_reason": "parent_gone",
+  "stop_signal": null,
+  "stopping": true
+}
