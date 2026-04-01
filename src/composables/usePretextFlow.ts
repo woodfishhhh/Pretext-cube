@@ -219,11 +219,22 @@ export function usePretextFlow(
     }
 
     const hull = projection.value?.hull ?? createFallbackHull(width.value, height.value)
-    const baseInterval: Interval = {
-      left: typography.value.screenPadding,
-      right: width.value - typography.value.screenPadding,
+    
+    const padding = typography.value.screenPadding
+    const center = width.value / 2
+    const gutter = Math.max(60, width.value * 0.06)
+
+    const leftPageInterval: Interval = {
+      left: padding,
+      right: center - gutter / 2,
     }
-    const slotSequence: Array<{ y: number; slot: Interval & { kind: 'primary' | 'ambient' } }> = []
+    const rightPageInterval: Interval = {
+      left: center + gutter / 2,
+      right: width.value - padding,
+    }
+
+    const leftSlotSequence: Array<{ y: number; slot: Interval & { kind: 'primary' | 'ambient' } }> = []
+    const rightSlotSequence: Array<{ y: number; slot: Interval & { kind: 'primary' | 'ambient' } }> = []
     const maxY = height.value - typography.value.bottomInset
 
     for (
@@ -249,17 +260,34 @@ export function usePretextFlow(
         Math.max(8, typography.value.objectPadding * 0.3),
       )
 
-      let intervals = hullObstacle
-        ? carveTextLineSlots(baseInterval, [hullObstacle], typography.value.minSlotWidth)
-        : [baseInterval]
+      let leftIntervals = hullObstacle
+        ? carveTextLineSlots(leftPageInterval, [hullObstacle], typography.value.minSlotWidth)
+        : [leftPageInterval]
 
-      // Keep line flow continuous even when the object occupies most of a row.
-      if (intervals.length === 0) {
-        intervals = [baseInterval]
+      if (leftIntervals.length === 0) {
+        leftIntervals = [leftPageInterval]
       }
 
-      for (const slot of intervals) {
-        slotSequence.push({
+      for (const slot of leftIntervals) {
+        leftSlotSequence.push({
+          y,
+          slot: {
+            ...slot,
+            kind: classifySlotKind(slot, y, width.value, height.value),
+          },
+        })
+      }
+
+      let rightIntervals = hullObstacle
+        ? carveTextLineSlots(rightPageInterval, [hullObstacle], typography.value.minSlotWidth)
+        : [rightPageInterval]
+
+      if (rightIntervals.length === 0) {
+        rightIntervals = [rightPageInterval]
+      }
+
+      for (const slot of rightIntervals) {
+        rightSlotSequence.push({
           y,
           slot: {
             ...slot,
@@ -268,6 +296,8 @@ export function usePretextFlow(
         })
       }
     }
+
+    const slotSequence = [...leftSlotSequence, ...rightSlotSequence]
 
     if (slotSequence.length === 0) {
       lines.value = []
