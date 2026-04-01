@@ -16,7 +16,7 @@
   const props = withDefaults(defineProps<{
     speed?: number
   }>(), {
-    speed: 0
+    speed: 0.1
   })
 
   const emit = defineEmits<{

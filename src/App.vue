@@ -7,7 +7,7 @@
 
   const projection = shallowRef<ProjectionSnapshot | null>(null)
   const isInteracting = shallowRef(false)
-  const animationSpeed = shallowRef(0)
+  const animationSpeed = shallowRef(0.1)
   const scrollProgress = shallowRef(0)
 
   function handleProjectionChange(nextProjection: ProjectionSnapshot) {
@@ -28,8 +28,8 @@
     <div class="exhibit-shell__atmosphere" aria-hidden="true"></div>
 
     <header class="exhibit-shell__header">
-      <p class="exhibit-shell__eyebrow">高维几何 / 第四象限</p>
-      <h1 class="exhibit-shell__title">超立方体</h1>
+      <p class="exhibit-shell__eyebrow">一个Pretext Demo</p>
+      <h1 class="exhibit-shell__title">HYPERCUBE</h1>
     </header>
 
     <aside class="exhibit-shell__meta exhibit-shell__meta--left">
