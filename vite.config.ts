@@ -9,9 +9,11 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        // 启用代码分割，将 @vue/devtools 单独打包
-        manualChunks: {
-          'vue-devtools': ['@vue/devtools'],
+        // Vite 8 / Rolldown 这里要求使用函数形式
+        manualChunks(id) {
+          if (id.includes('@vue/devtools')) {
+            return 'vue-devtools'
+          }
         },
       },
     },
