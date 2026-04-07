@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/pretext/',
   plugins: [vue()],
   build: {
     // 提高分块大小阈值（避免警告）
