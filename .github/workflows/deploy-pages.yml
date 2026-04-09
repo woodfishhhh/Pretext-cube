@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base /Pretext-cube/
+        run: npm run build:pages
 
       - name: SPA fallback
         run: cp dist/index.html dist/404.html
